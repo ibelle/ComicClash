@@ -35,15 +35,11 @@ module.exports = {
    * `CharactersController.list()`
    */
   list: function (req, res) {
-    dcWikiService.getAllCharacters({}, 
-      function(err){
-        sails.log('GOT AN ERROR');
-       // if (err) { return res.serverError(err); }
-      });
-    sails.log('HERE');
-    return res.json({
-      todo: 'list(CHANGED) is not implemented yet!',
-      output: 'test' 
+    dcWikiService.getAllCharacters({}, function(result){
+      return res.json({
+            todo: 'ALL Characters',
+            results: result
+          });
     });
   },
 
